@@ -25,6 +25,20 @@ def main():
                 lines = [re.sub(r"  +", " ", line) for line in lines]
                 # remove emojis
                 lines = [demoji.replace(line, "") for line in lines]
+                # remove punctuation
+                lines = [re.sub(r"[()!?]", " ", line) for line in lines]
+                lines = [re.sub(r"[.,;:]", " ", line) for line in lines]
+                # remove numbers
+                lines = [re.sub(r"[0-9]", " ", line) for line in lines]
+                # remove quotes and apostrophes
+                lines = [re.sub(r"['\"]", "", line) for line in lines]
+                lines = [re.sub(r"[“”]", "", line) for line in lines]
+                # remove plus minus equals signs
+                lines = [re.sub(r"[+=-]", " ", line) for line in lines]
+                # remove slashes
+                lines = [re.sub(r"[\\/]", " ", line) for line in lines]
+                # remove @ and # symbols
+                lines = [re.sub(r"[@#]", " ", line) for line in lines]
 
             # write lines to file
             with open(file, "w", encoding="utf-8") as f:
