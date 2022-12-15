@@ -1,6 +1,6 @@
 import os
 import re
-from cleantext import clean
+import demoji
 
 
 def main():
@@ -21,8 +21,10 @@ def main():
                 lines = [re.sub(r"#[a-z0-9_]+", "", line) for line in lines]
                 # remove urls
                 lines = [re.sub(r"https?://[a-z0-9./]+", "", line) for line in lines]
+                # remove double spaces
+                lines = [re.sub(r"  +", " ", line) for line in lines]
                 # remove emojis
-                lines = [clean(line, no_line_breaks=True, no_urls=True, no_emails=True, no_phone_numbers=True, no_numbers=True, no_digits=True, no_currency_symbols=True, no_punct=True, replace_with_url="", replace_with_email="", replace_with_phone_number="", replace_with_number="", replace_with_digit="", replace_with_currency_symbol="", lang="id") for line in lines]
+                lines = [demoji.replace(line, "") for line in lines]
 
             # write lines to file
             with open(file, "w", encoding="utf-8") as f:
