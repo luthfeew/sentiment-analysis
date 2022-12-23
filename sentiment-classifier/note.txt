@@ -1,0 +1,13 @@
+Tweet 1
+115 ~ 26 positif, 69 negatif, 20 netral
+Tweet 2
+192 ~ 73 positif, 76 negatif, 43 netral
+Tweet 3
+185 ~ 23 positif, 148 negatif, 14 netral
+Tweet 4
+182 ~ 41 positif, 123 negatif, 18 netral
+
+674 total
+163 positif
+416 negatif
+95 netral
